@@ -5,11 +5,14 @@ from django.contrib.syndication.feeds import Feed
 from coltrane.models import *
 from django.contrib.comments.models import Comment
 
+# Site name
+from coltrane.blog_settings import site_name, site_domain
+
 
 class FullFeed(Feed):
-	title = "the full feed . palewire"
-	link = "http://palewire.com/feeds/the-full-feed/"
-	description = "the latest from palewire.com"
+	title = "%s.full_feed" % site_name
+	link = "http:/%s/feeds/the-full-feed/" % site_domain
+	description = "the latest from %s" % site_name
 
 	def items(self):
 		return Ticker.objects.all().order_by('-pub_date')[:10]
@@ -25,9 +28,9 @@ class FullFeed(Feed):
 
 
 class LessNoise(Feed):
-	title = "less noise . palewire"
-	link = "http://palewire.com/feeds/less-noise/"
-	description = "the latest from palewire.com, except for all those tracks"
+	title = "%s.less_noise" % site_name
+	link = "http://%s/feeds/less-noise/" % site_domain
+	description = "the latest from %s, except for all those tracks" % site_name
 
 	def items(self):
 		return Ticker.objects.exclude(content_type__name__iexact='Track').order_by('-pub_date')[:10]
@@ -43,9 +46,9 @@ class LessNoise(Feed):
 
 
 class RecentPosts(Feed):
-	title = "posts . palewire"
-	link = "http://palewire.com/feeds/posts/"
-	description = "the latest posts at palewire.com"
+	title = "%s.posts" % site_name
+	link = "http://%s/feeds/posts/" % site_domain
+	description = "the latest posts at %s" % site_name
 
 	def items(self):
 		return Post.live.all().order_by('-pub_date')[:10]
@@ -55,9 +58,9 @@ class RecentPosts(Feed):
 
 
 class RecentBooks(Feed):
-	title = "books . palewire"
-	link = "http://palewire.com/feeds/books/"
-	description = "the latest books at palewire.com"
+	title = "%s.books" % site_name
+	link = "http://%s/feeds/books/" % site_domain
+	description = "the latest books at %s" % site_name
 
 	def items(self):
 		return Book.objects.all().order_by('-pub_date')[:10]
@@ -70,9 +73,9 @@ class RecentBooks(Feed):
 
 
 class RecentCommits(Feed):
-	title = "code commits . palewire"
-	link = "http://palewire.com/feeds/commits/"
-	description = "the latest code commits at palewire.com"
+	title = "%s.commits" % site_name
+	link = "http://%s/feeds/commits/" % site_domain
+	description = "the latest code commits at %s" % site_name
 
 	def items(self):
 		return Commit.objects.all().order_by('-pub_date')[:10]
@@ -85,9 +88,9 @@ class RecentCommits(Feed):
 
 
 class RecentShouts(Feed):
-	title = "shouts . palewire"
-	link = "http://palewire.com/feeds/shouts/"
-	description = "the latest shouts at palewire.com"
+	title = "%s.shouts" % site_name
+	link = "http://%s/feeds/shouts/" % site_domain
+	description = "the latest shouts at %s" % site_name
 
 	def items(self):
 		return Shout.objects.all().order_by('-pub_date')[:10]
@@ -100,9 +103,9 @@ class RecentShouts(Feed):
 
 
 class RecentLinks(Feed):
-	title = "links . palewire"
-	link = "http://palewire.com/feeds/links/"
-	description = "the latest links at palewire.com"
+	title = "%s.links" % site_name
+	link = "http://%s/feeds/links/" % site_domain
+	description = "the latest links at %s" % site_name
 
 	def items(self):
 		return Link.objects.all().order_by('-pub_date')[:10]
@@ -115,9 +118,9 @@ class RecentLinks(Feed):
 
 
 class RecentPhotos(Feed):
-	title = "photos . palewire"
-	link = "http://palewire.com/feeds/photos/"
-	description = "the latest photos at palewire.com"
+	title = "%s.photos" % site_name
+	link = "http://%s/feeds/photos/" % site_domain
+	description = "the latest photos at %s" % site_name
 
 	def items(self):
 		return Photo.objects.all().order_by('-pub_date')[:10]
@@ -130,9 +133,9 @@ class RecentPhotos(Feed):
 
 
 class RecentTracks(Feed):
-	title = "tracks . palewire"
-	link = "http://palewire.com/feeds/tracks/"
-	description = "the latest tracks at palewire.com"
+	title = "%s.tracks" % site_name
+	link = "http://%s/feeds/tracks/" % site_domain
+	description = "the latest tracks at %s" % site_name
 
 	def items(self):
 		return Track.objects.all().order_by('-pub_date')[:10]
@@ -145,9 +148,9 @@ class RecentTracks(Feed):
 
 
 class RecentComments(Feed):
-	title = "comments . palewire"
-	link = "http://palewire.com/feeds/comments"
-	description = "the latest comments at palewire.com"
+	title = "%s.comments" % site_name
+	link = "http://%s/feeds/comments" % site_domain
+	description = "the latest comments at %s" % site_name
 
 	def items(self):
 		return Comment.objects.filter(is_public=True).order_by('-submit_date')[:10]

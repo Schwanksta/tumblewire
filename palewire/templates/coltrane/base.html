@@ -4,29 +4,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-	<title>{% block title %}palewire{% endblock %}</title>
+	<title>{% block title %}{{site_name}}{% endblock %}</title>
 	
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-	<meta name="Author" content="palewire.com" />
-	<meta name="description" content="{% block description %}Blog. Proprietor Ben Welsh.{% endblock %}" />
-	<meta name="keywords" content="{% block keywords %}palewire, ben welsh, benjamin welsh, computer-assisted reporting, journalism{% endblock %}" />
+	<meta name="Author" content="{{meta_info.author}}" />
+	<meta name="description" content="{% block description %}{{meta_info.description}}{% endblock %}" />
+	<meta name="keywords" content="{% block keywords %}{{meta_info.keywords}}{% endblock %}" />
 	<meta name="robots" content="index,nofollow" />
 	
 	<link rel="stylesheet" type="text/css" href="/media/reset-fonts-grids.css"/>
 	<link rel="stylesheet" type="text/css" href="/media/style.css"/>
 	
-	<link rel="alternate" type="application/rss+xml" title="the full feed" href="feeds/the-full-feed/"/>
-	<link rel="alternate" type="application/rss+xml" title="less noise" href="feeds/less-noise/"/>
-	<link rel="alternate" type="application/rss+xml" title="posts" href="feeds/posts/"/>
-	<link rel="alternate" type="application/rss+xml" title="books" href="feeds/books/"/>
-	<link rel="alternate" type="application/rss+xml" title="code commits" href="feeds/commits/"/>
-	<link rel="alternate" type="application/rss+xml" title="comments" href="feeds/comments/"/>
-	<link rel="alternate" type="application/rss+xml" title="shouts" href="feeds/shouts/"/>
-	<link rel="alternate" type="application/rss+xml" title="links" href="feeds/links/"/>
-	<link rel="alternate" type="application/rss+xml" title="videos" href="feeds/videos/"/>
-	<link rel="alternate" type="application/rss+xml" title="photos" href="feeds/photos/"/>
-	<link rel="alternate" type="application/rss+xml" title="tracks" href="feeds/tracks/"/>
-	
+    {% if feeds %}
+        {% for feed in feeds %}
+        <link rel="alternate" type="application/rss+xml" title="{{feed.title}}" href="{{feed.link}}"/>{% endfor %}
+    {% endif %}	
+
 	{% block extralinktags %}
 	{% endblock %}
 	
