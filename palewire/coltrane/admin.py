@@ -112,8 +112,3 @@ class TrackAdmin(admin.ModelAdmin):
 	
 admin.site.register(Track, TrackAdmin)
 
-
-class SloganAdmin(admin.ModelAdmin):
-	pass
-	
-admin.site.register(Slogan, SloganAdmin)
