@@ -37,90 +37,63 @@
 	
 </head>
 <body {%block extrabody %}{% endblock %}>
-	
-		<div id="doc" class="yui-t7">
-
-		<div id="hd">
-			<h1>
-				<a href="/">
-					palewire
-				</a>
-			</h1>
-			
-			<h2>
-				<a href="/who-is-ben-welsh/">Who is Ben Welsh?</a>
-			</h2>
-		</div>
+    <div id="navlinks">	
+        <a href="{% url coltrane_book_list 1 %}" title="Books">
+            Books
+        </a>
+        <a href="{% url coltrane_category_list %}" title="Categories">
+            Categories
+        </a>
+        <a href="{% url coltrane_commit_list 1 %}" title="Code commits">
+            Code commits
+        </a>
+        <a href="{% url coltrane_comment_list 1 %}" title="Comments">
+            Comments
+        </a>
+        <a href="/feeds/list/" title="Feeds">
+            Feeds
+        </a>
+        <a href="{% url coltrane_link_list 1 %}" title="Links">
+            Links
+        </a>
+        <a href="{% url coltrane_photo_list 1 %}" title="Photos">
+            Photos	
+        </a>
+        <a href="{% url coltrane_post_archive_index 1 %}" title="Posts">
+            Posts
+        </a>
+        <a href="{% url coltrane_shout_list 1 %}" title="Shouts">
+            Shouts
+        </a>
+        <a href="{% url coltrane_tag_list %}" title="Tags">
+            Tags
+        </a>
+        <a href="{% url coltrane_ticker_list 1 %}" title="Ticker">
+            Ticker
+        </a>
+        <a href="{% url coltrane_track_list 1 %}" title="Tracks">
+            Tracks
+        </a>
+    </div>
 		
-		<div id="topbar"></div>
-		<div id="navbar">
-			
-			<a href="{% url coltrane_book_list 1 %}" title="Books">
-				<img src="/media/icons/books.gif" width="30" alt="books" />
-			</a>
-			<a href="{% url coltrane_category_list %}" title="Categories">
-				<img src="/media/icons/categories.gif" width="30" alt="categories" />
-			</a>
-			<a href="{% url coltrane_commit_list 1 %}" title="Code commits">
-				<img src="/media/icons/commits.gif" width="30" alt="code commits" />
-			</a>
-			<a href="{% url coltrane_comment_list 1 %}" title="Comments">
-				<img src="/media/icons/comments.gif" width="30" alt="comments" />
-			</a>
-			<a href="/feeds/list/" title="Feeds">
-				<img src="/media/icons/feeds.gif" width="30" alt="feeds"/>
-			</a>
-			<a href="{% url coltrane_link_list 1 %}" title="Links">
-				<img src="/media/icons/links.gif" width="30" alt="links" />
-			</a>
-			<a href="{% url coltrane_photo_list 1 %}" title="Photos">
-				<img src="/media/icons/photos.gif" width="30" alt="photos" />
-			</a>
-			<a href="{% url coltrane_post_archive_index 1 %}" title="Posts">
-				<img src="/media/icons/posts.gif" width="30" alt="posts" />
-			</a>
-			<a href="{% url coltrane_shout_list 1 %}" title="Shouts">
-				<img src="/media/icons/shouts.gif" width="30" alt="shouts" />
-			</a>
-			<a href="{% url coltrane_tag_list %}" title="Tags">
-				<img src="/media/icons/tags.gif" width="30" alt="tags" />
-			</a>
-			<a href="{% url coltrane_ticker_list 1 %}" title="Ticker">
-				<img src="/media/icons/ticker.gif" width="30" alt="ticker" />
-			</a>
-			<a href="{% url coltrane_track_list 1 %}" title="Tracks">
-				<img src="/media/icons/tracks.gif" width="30" alt="tracks" />
-			</a>
-		</div>
-		
-		<div id="bd">
-			<div class="yui-g">
-				{% block content %}
-				{% endblock %}
-			</div>
-		</div> 
-		
-		<div id="ft">
-			<h4>
-				© 2008 palewire . 
-				<a href="/colophon/">colophon</a> . 
-				<a href="http://www.timeanddate.com/worldclock/city.html?n=137">los angeles time</a> . 
-				<a href="http://creativecommons.org/licenses/by/2.0/" rel="license">cc 2.0</a> . 
-				powered by <a id="django-link" href="http://www.djangoproject.com/">django</a>
-			</h4>
-		</div>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div> 
+    
+    <div id="footer">
+        <h4>
+            © 2009 {{my_full_name}} . 
+            <a href="/colophon/">colophon</a> . 
+            <a href="http://www.timeanddate.com/worldclock/city.html?n=137">los angeles time</a> . 
+            <a href="http://creativecommons.org/licenses/by/2.0/" rel="license">cc 2.0</a> . 
+            powered by <a id="django-link" href="http://www.djangoproject.com/">django</a>,
+            fork of <a href="http://github.com/palewire/palewire.com/tree/master">palewire.com</a> 
+        </h4>
+    </div>
 
-	</div>
+</div>
 
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-701730-2");
-pageTracker._trackPageview();
-} catch(err) {}</script>
 
 </body>
 </html>

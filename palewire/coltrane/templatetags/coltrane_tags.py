@@ -1,27 +1,6 @@
 from django import template
 from django.db.models import get_model
-from coltrane.models import Post, Slogan
-
-def do_random_slogan(parser,token):
-	return RandomSloganNode()
-
-class RandomSloganNode(template.Node):
-	def render(self, context):
-		try:
-			random_slogan = Slogan.objects.all().order_by("?")[0]
-			context['random_slogan'] = random_slogan
-		except:
-			context['random_slogan'] = ''
-		return ''
-		
-
-def do_all_slogans(parser,token):
-	return AllSlogansNode()
-
-class AllSlogansNode(template.Node):
-	def render(self, context):
-		context['slogan_list'] = Slogan.objects.all()
-		return ''
+from coltrane.models import Post
 
 def do_latest_content(parser, token):
 	bits = token.contents.split()
@@ -47,8 +26,6 @@ class LatestContentNode(template.Node):
 		
 register = template.Library()
 register.tag('get_latest_content', do_latest_content)
-register.tag('get_random_slogan', do_random_slogan)
-register.tag('get_all_slogans', do_all_slogans)
 
 
 

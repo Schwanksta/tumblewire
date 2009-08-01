@@ -7,7 +7,7 @@
 {% block content %}
 {% get_latest_content coltrane.post 5 as object_list %}
 
-{% for object in object_list|slice:":1" %}
+{% for object in object_list %}
 
 	<h1>{{ object }}</h1>
 	

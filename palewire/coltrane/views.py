@@ -11,7 +11,7 @@ from django.template import RequestContext
 # Models
 from django.db.models import get_model
 from tagging.models import Tag, TaggedItem
-from coltrane.models import Post, Category, Link, Photo
+from coltrane.models import Post, Category, Link, Photo, Ticker
 
 # Views
 from django.views.generic.list_detail import object_list
@@ -23,6 +23,8 @@ def index(request):
     """
     latest_post = Post.live.latest()
     return HttpResponseRedirect(latest_post.get_absolute_url())
+    #object_list = Ticker.objects.all()[6]
+    #return render_to_response('coltrane/index.html', locals())
 
 
 def post_detail(request, year, month, day, slug):

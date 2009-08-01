@@ -16,6 +16,7 @@ meta_info = {
     'robots': 'index,nofollow' 
 }
 
+# Collects all feeds from coltrane.feeds into a list
 from django.contrib.syndication.feeds import Feed
 from inspect import isclass
 import feeds as blog_feeds
