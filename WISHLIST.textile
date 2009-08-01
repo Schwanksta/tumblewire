@@ -1,8 +1,12 @@
 h1. Wishlist
 
-A bunch of crap I might do
+A bunch of crap that might get done.
 
-h3. TODO
+h3. KEN'S TODO
+
+* Pandora integration (provides sweet RSS feeds)
+
+h3. BEN'S TODO
 
 * Restore photos to LA street band post
 * Kill periods at the end of post titles

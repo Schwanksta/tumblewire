@@ -1,4 +1,14 @@
-h1. palewire.com
+h1. Dependencies
+
+* django-tagging
+* httplib2
+* Pygments
+
+h1. schwanksta.com?
+
+This is a fork of a blogging system built by my coworker, Ben Welsh. I've been tinkering with doing the same tumblog-style unified site on my own time recently, but I'm a sucker for a clean, existing codebase to start with. This might run my own site soon enough.
+
+h1. palewire.com (Ben's original README)
 
 The current edition of my blog, published at "palewire.com":http://www.palewire.com. 
 "
