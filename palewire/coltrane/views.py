@@ -11,8 +11,7 @@ from django.template import RequestContext
 # Models
 from django.db.models import get_model
 from tagging.models import Tag, TaggedItem
-from coltrane.models import Post, Category, Link, Photo, Ticker
-
+from coltrane.models import *
 # Views
 from django.views.generic.list_detail import object_list
 
@@ -21,9 +20,11 @@ def index(request):
     """
     The homepage of the site, which simply redirects to the latest post.
     """
-    #latest_post = Post.live.latest()
-    #return HttpResponseRedirect(latest_post.get_absolute_url())
-    object_list = Ticker.objects.all()[:6]
+    group_list = [Post, Shout, Commit, Photo, Track, Link]
+
+    object_list = [{'name':group.__name__, 'objects':group.objects.all()[:5]} for group in group_list]
+    print object_list
+
     return render_to_response('coltrane/index.html', locals(), context_instance=RequestContext(request))
 
 

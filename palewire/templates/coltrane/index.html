@@ -5,13 +5,16 @@
 {% block title %}{{ block.super }}{% endblock %}
 
 {% block content %}
-{% get_latest_content coltrane.post 5 as object_list %}
 
-{% for object in object_list %}
-
-	<h1>{{ object.get_rendered_html }}</h1>
-	
-
+{% for group in object_list %}
+  <div class="box">
+    <div class="box_title"><strong>{{group.name}}</strong></div>
+        <div class="box_content">
+            {% for object in group.objects %}
+                <h3>{{ object.get_rendered_html }}</h3>
+            {% endfor %}
+        </div>
+    </div>
 {% endfor %}
 
 {% endblock %}
