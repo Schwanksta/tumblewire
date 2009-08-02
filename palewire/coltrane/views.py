@@ -24,7 +24,7 @@ def index(request):
     #latest_post = Post.live.latest()
     #return HttpResponseRedirect(latest_post.get_absolute_url())
     object_list = Ticker.objects.all()[:6]
-    return render_to_response('coltrane/index.html', locals())
+    return render_to_response('coltrane/index.html', locals(), context_instance=RequestContext(request))
 
 
 def post_detail(request, year, month, day, slug):
