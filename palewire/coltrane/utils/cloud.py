@@ -9,6 +9,7 @@ database hits. This will run a join that really slims things down.
 >>> cloud.calculate_cloud(TaggedItem.objects.select_related().all())
 """
 import math
+from django.utils.translation import ugettext as _
 
 # Font size distribution algorithms
 LOGARITHMIC, LINEAR = 1, 2
@@ -70,7 +71,7 @@ def calculate_cloud(tagged_items_qs, steps=4, distribution=LOGARITHMIC, min_coun
 					tag_counts[tag]['font_size'] = i + 1
 					font_set = True
 					
-	tag_list = [(k, v['font_size']) for k,v in tag_counts.items() if v['count'] > min_count]
-	tag_list.sort(lambda x,y:cmp(x[1], y[1]))
+	tag_list = [(k, v['font_size'], v['count']) for k,v in tag_counts.items() if v['count'] > min_count]
+	tag_list.sort(lambda x,y:cmp(x[2], y[2]))
 	tag_list.reverse()
 	return tag_list
