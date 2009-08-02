@@ -1,15 +1,23 @@
 h2. Crontabs
 
 # env variables
-MAILTO="ben.welsh@gmail.com"
+MAILTO="schwank@gmail.com"
 PYTHONPATH=/home/benwelsh/webapps/palewire/:/home/benwelsh/webapps/palewire/apps/palewire/:/home/benwelsh/webapps/palewire/lib/python2.5
 DJANGO_SETTINGS_MODULE=settings
 
-# Last.fm updater
+# Last.fm
 1,11,21,31,41,51 * * * *  /usr/local/bin/python2.4 /home/benwelsh/webapps/palewire/apps/palewire/coltrane/utils/lastfm.py > /home/benwelsh/cron.log 2>&1
+
+# Flickr
 13,33,53 * * * *  /usr/local/bin/python2.4 /home/benwelsh/webapps/palewire/apps/palewire/coltrane/utils/flickr.py > /home/benwelsh/cron.log 2>&1
+
+# Delicious
 5,25,45 * * * *  /usr/local/bin/python2.4 /home/benwelsh/webapps/palewire/apps/palewire/coltrane/utils/delicious.py > /home/benwelsh/cron.log 2>&1
+
+# Twitter
 7,17,27,37,47,57 * * * *  /usr/local/bin/python2.4 /home/benwelsh/webapps/palewire/apps/palewire/coltrane/utils/twitter.py > /home/benwelsh/cron.log 2>&1
+
+# Digg
 19,39,59 * * * *  /usr/local/bin/python2.4 /home/benwelsh/webapps/palewire/apps/palewire/coltrane/utils/digg.py > /home/benwelsh/cron.log 2>&1
 
 # Restart apache in case of crash

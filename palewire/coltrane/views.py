@@ -21,10 +21,10 @@ def index(request):
     """
     The homepage of the site, which simply redirects to the latest post.
     """
-    latest_post = Post.live.latest()
-    return HttpResponseRedirect(latest_post.get_absolute_url())
-    #object_list = Ticker.objects.all()[6]
-    #return render_to_response('coltrane/index.html', locals())
+    #latest_post = Post.live.latest()
+    #return HttpResponseRedirect(latest_post.get_absolute_url())
+    object_list = Ticker.objects.all()[:6]
+    return render_to_response('coltrane/index.html', locals())
 
 
 def post_detail(request, year, month, day, slug):

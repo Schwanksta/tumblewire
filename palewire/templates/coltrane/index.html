@@ -9,9 +9,8 @@
 
 {% for object in object_list %}
 
-	<h1>{{ object }}</h1>
+	<h1>{{ object.get_rendered_html }}</h1>
 	
-	{% include "coltrane/post_body.html" %}
 
 {% endfor %}
 
