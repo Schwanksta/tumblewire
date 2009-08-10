@@ -1,0 +1,149 @@
+/*Meyer's CSS reset*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+    outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+    text-decoration: none;
+}
+del {
+    text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* END RESET*/
+
+body { 
+	text-align: center; 
+	font-family: helvetica, arial, sans-serif;
+	background-image: url('http://schwanksta.com/media/img/la-at-night.jpg');
+}
+h1 { font-size: 6em;}
+ul {
+    margin-left: 2em;
+}
+li {
+    list-style-image: url('http://schwanksta.com/media/img/bullet.png');
+    
+}
+a, a:visited { color: #00dddd; text-decoration: none; }
+a:hover { background: #f7eb26; color: #555}
+li a { padding: 5px; display:block; }
+
+#header { 
+	color: #333; 
+	margin: 0px auto; 
+}
+#header h1 { float:left; }
+#dotcom { float: left; font-size: 3em; clear:right; text-align: left; line-height:.9em }
+#container { width: 960px; margin: 0px auto; margin-top: 10px;}
+#content { clear:both; text-align: left; margin-top:-10px; }
+
+.box {
+    width: 310px;
+    margin: 4px;
+    float: left;
+    height: 310px;
+    border: 1px solid #333;
+	background-image: url(http://schwanksta.com/media/img/box-bg.png);
+}
+a .box_title {
+	color: #ddd;
+}
+a:hover .box_title{ color: #f7eb26;}
+.box_title {
+    font-size: .9em;
+    background: #333;
+    color: white;
+    padding: 3px;
+    margin-bottom:10px;
+}
+.box_content { 
+	font-size: .9em; 
+	margin: 3px; 
+	height: 285px; 
+	overflow: auto;
+}
+
+.timestamp {
+    font-size: 11px;
+    color: gray;
+    text-align: right;
+    margin-right: 10px;
+}
+
+#footer {
+	clear: both;
+	width: 100%;
+}
+
+#navlinks {
+	margin-bottom: 5px;
+}
+
+#navlinks a {
+	padding: 5px;
+}
+
+.ticker-item-info {
+	clear: left;
+}
+.shout-text {
+	float: left; 
+}
+.pub-date-header {
+	font-weight: bold;
+	padding-bottom:5px;
+	margin-left: -20px;
+}
+.interior-date {
+	font-weight: bold;
+	padding-bottom:5px;
+	margin-left: -20px;
+	list-style-type: none;
+}
+
+.interiorlist {
+	min-height: 630px;
+	padding: 5px;
+	background-image: url(http://schwanksta.com/media/img/box-bg.png);
+}
