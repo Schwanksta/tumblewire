@@ -1,6 +1,5 @@
 
 	<a class="post" href="{{ object.get_absolute_url }}">
-		{{ object.pub_date|date:"H:i" }}
-		<i>{{ object|truncatewords:8 }}</i><br/>
-       {{ object.body_html|safe|truncatewords:25 }}
+		<div class="ticker-post-title">{{ object|truncatewords:8 }}</div>
+        <div class="ticker-post-body">{{ object.body_html|safe|truncatewords:25 }}</div>
 	</a>

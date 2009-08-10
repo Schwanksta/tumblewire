@@ -5,14 +5,13 @@
 
 {% block keywords %}{% for tag in object.get_tags %}{{ tag }}, {% endfor %}{{ block.super }}{% endblock %}
 
-{% block content %}
-<h1>
-<img style="vertical-align:text-bottom;" height="40" src="/media/icons/posts-big.gif"/>&nbsp;
-{{ object.title }}
-</h1>
-
 {% load comments %}
-
+{% block content %}
+    <div class="interiorlist">
+    <div class="postbody">
+        <h2>
+        {{ object.title }}
+        </h2>
 		<div id="detailbody">{{ object.body_html|safe }}</div>
 		
 		<div id="detailborderbumper" class="thin"></div>
@@ -64,9 +63,9 @@
 		<div id ="comments">
 			{% get_comment_list for object as comment_list %}
 			{% if comment_list %}
-				<h2><img style="vertical-align:text-bottom;"src="/media/icons/comments.png" width="30"/>
+				<h3>
 					Comments
-				</h2>
+				</h3>
 			{% endif %}
 			
 			{% for comment in comment_list %}
@@ -84,5 +83,6 @@
 			{% render_comment_form for object %}
 			
 		</div>
-
+    </div>
+    </div>
 {% endblock %}

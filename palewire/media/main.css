@@ -66,7 +66,10 @@ li {
     
 }
 a, a:visited { color: #00dddd; text-decoration: none; }
-a:hover { background: #f7eb26; color: #555}
+a:hover { 
+	color: #ddd; 
+	background-image: url(http://schwanksta.com/media/img/link-hover.png);
+}
 li a { padding: 5px; display:block; }
 
 #header { 
@@ -114,6 +117,7 @@ a:hover .box_title{ color: #f7eb26;}
 #footer {
 	clear: both;
 	width: 100%;
+	color: #ddd;
 }
 
 #navlinks {
@@ -146,4 +150,32 @@ a:hover .box_title{ color: #f7eb26;}
 	min-height: 630px;
 	padding: 5px;
 	background-image: url(http://schwanksta.com/media/img/box-bg.png);
+}
+
+.ticker-post-title {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.ticker-post-body {
+	font-size: 13px;
+}
+
+.detailbody {
+
+}
+
+.postbody {
+    margin: 0px auto;
+    padding-right: 100px;
+    padding-left: 100px;
+    padding-top: 5px;
+}
+
+#detailmetadata {
+    text-align: right;
+}
+
+h2 {
+    font-size: 30px;
 }
