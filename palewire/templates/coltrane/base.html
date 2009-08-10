@@ -25,13 +25,6 @@
 	
 	<script type="text/javascript" src="/media/jquery-1.2.6.min.js"></script>
 
-	<script type="text/javascript"> 
-	//<![CDATA[
-	$(document).ready(function(){
-		{% include "coltrane/nav.js" %}
-	});
-	//]]>
-	</script>
 	{% block extrahead %}
 	{% endblock %}
 	
@@ -39,7 +32,7 @@
 <body {%block extrabody %}{% endblock %}>
     <div id="container">
 
-    <div id="navlinks">	
+    <!--<div id="navlinks">	
         <a href="{% url coltrane_book_list 1 %}" title="Books">
             Books
         </a>
@@ -76,10 +69,12 @@
         <a href="{% url coltrane_track_list 1 %}" title="Tracks">
             Tracks
         </a>
-    </div>
-    <div id="header">
-        <h1>Schwanksta</h1><div id="dotcom">Dot<br/>Com</div>
-    </div>	
+    </div>-->
+    <a style="color: black" href="/">
+        <div id="header">
+            <h1>Schwanksta</h1><div id="dotcom">Dot<br/>Com</div>
+        </div>	
+    </a>
     <div id="content">
         {% block content %}
         {% endblock %}
@@ -90,8 +85,8 @@
             © 2009 {{my_full_name}} . 
             <a href="/colophon/">colophon</a> . 
             <a href="http://www.timeanddate.com/worldclock/city.html?n=137">los angeles time</a> . 
-            <a href="http://creativecommons.org/licenses/by/2.0/" rel="license">cc 2.0</a> . 
-            <a href="http://djangopony.com/" class="ponybadge" title="Magic! Ponies! Django! Whee!"><img  style="margin-bottom: -12px;" src="http://media.djangopony.com/img/small/badge.png" width="210" height="65" alt="pony powered"></a>
+            <a href="http://creativecommons.org/licenses/by/2.0/" rel="license">cc 2.0</a> . <br/>
+            <a href="http://djangopony.com/" class="ponybadge" title="Magic! Ponies! Django! Whee!"><img  style="margin-bottom: -12px; margin-left:5px; margin-right: -5px;" src="http://media.djangopony.com/img/small/badge.png" width="210" height="65" alt="pony powered"></a>
             fork of <a href="http://github.com/palewire/palewire.com/tree/master">palewire.com</a> 
         </h4>
     </div>

@@ -1,7 +1,7 @@
 {% extends "coltrane/base.html" %}
 {% load coltrane_tags %}
 
-{% block title %}{{ category.title|lower }} . categories . {{ block.super }}{% endblock %}
+{% block title %}{{ block.super }}.categories.{{ category.title|lower }} {% endblock %}
 
 {% block content %}
 	<div class="interiorlist">

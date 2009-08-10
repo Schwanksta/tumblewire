@@ -20,9 +20,22 @@ def index(request):
     """
     The homepage of the site, which simply redirects to the latest post.
     """
-    group_list = [Post, Shout, Commit, Photo, Track, Link]
+    group_list = [
+        {'obj':Post, 'n':7},
+        {'obj':Shout, 'n':4},
+        {'obj':Commit, 'n':4},
+        {'obj':Photo, 'n':10},
+        {'obj':Track, 'n':5},
+        {'obj':Link, 'n':5}
+    ]
 
-    object_list = [{'name':group.__name__, 'objects':group.objects.all()[:5]} for group in group_list]
+    object_list = [{
+            'name': group['obj'].__name__, 
+            'objects': group['obj'].objects.all()[:group['n']],
+            'root_url': reverse('coltrane_%s_root' % group['obj'].__name__.lower())
+        } for group in group_list
+    ]
+
     print object_list
 
     return render_to_response('coltrane/index.html', locals(), context_instance=RequestContext(request))

@@ -8,11 +8,16 @@
 
 {% for group in object_list %}
   <div class="box">
-    <div class="box_title"><strong>{{group.name}}</strong></div>
+    <a href="{{group.root_url}}"><div class="box_title"><!--<img style="vertical-align:text-top;" src="{{ group.objects.0.get_absolute_icon }}"/>--><strong>{{group.name}}</strong></div></a>
         <div class="box_content">
+            <ul>
             {% for object in group.objects %}
-                <h3>{{ object.get_rendered_html }}</h3>
+                {% ifchanged object.pub_date.day %}
+                    <div class="pub-date-header">{{ object.pub_date|date:"F d, Y" }}</div>
+                {% endifchanged %}
+                <li>{{ object.get_rendered_html }}</li>
             {% endfor %}
+            </ul>
         </div>
     </div>
 {% endfor %}

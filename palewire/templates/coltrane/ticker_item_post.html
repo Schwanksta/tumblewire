@@ -1,6 +1,6 @@
 
 	<a class="post" href="{{ object.get_absolute_url }}">
-		{{ object.pub_date|date:"H:i" }}&nbsp;
-		<img style="vertical-align:text-top;" src="{{ object.get_absolute_icon }}" alt="posts" />&nbsp;
-		{{ object|truncatewords:8 }}
+		{{ object.pub_date|date:"H:i" }}
+		<i>{{ object|truncatewords:8 }}</i><br/>
+       {{ object.body_html|safe|truncatewords:25 }}
 	</a>

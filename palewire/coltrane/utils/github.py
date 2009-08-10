@@ -24,7 +24,7 @@ from coltrane.models import Commit
 # Logging
 import logging
 import pdb
-log = logging.getLogger("jellyroll.utils.github")
+log = logging.getLogger("coltrane.utils.github")
 
 def enabled():
     ok = hasattr(settings, 'GITHUB_USER')
@@ -52,11 +52,10 @@ class GithubClient(object):
         # Fetch the XML via web request
         url = 'http://github.com/%s.atom' % self.username
         xml = utils.getxml(url)
-        print xml 
-        pdb.set_trace()
+        #pdb.set_trace()
         commits = []
         
-        GITHUB_TITLE_REGEX = re.compile(r'%s pushed to (?P<branch>(.*)) at (?P<repository>(.*))' % self.username)
+        GITHUB_TITLE_REGEX = re.compile(r'Schwanksta pushed to (?P<branch>(.*)) at (?P<repository>(.*))')
         
         # Loop through all the entries
         entries = list(xml.getiterator('{http://www.w3.org/2005/Atom}entry'))
