@@ -19,7 +19,7 @@ feeds = {
 	'links': RecentLinks,
 	'photos': RecentPhotos,
 	'tracks': RecentTracks,
-	'books': RecentBooks,
+	#'books': RecentBooks,
 	'commits': RecentCommits,
 }
 

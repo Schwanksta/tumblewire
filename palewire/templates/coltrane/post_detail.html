@@ -7,7 +7,7 @@
 
 {% load comments %}
 {% block content %}
-    <div class="interiorlist">
+    <div class="interiorlist postbg">
     <div class="postbody">
         <h2>
         {{ object.title }}
@@ -17,7 +17,7 @@
 		<div id="detailborderbumper" class="thin"></div>
 		
 		<div id="detailmetadata">
-			<p id="postpubdate">This is a post <b>{{ object.author }}</b> made on <b>{{ object.pub_date|date:"F j, Y" }}</b>, {{ object.pub_date|timesince }} ago.</p>
+			<p id="postpubdate">This is a <a href="{%url coltrane_post_root %}">post</a> <b>{{ object.author }}</b> made on <b>{{ object.pub_date|date:"F j, Y" }}</b>, {{ object.pub_date|timesince }} ago.</p>
 			{% if object.categories.count %}
 				
 				<p id ="postcats">
@@ -42,7 +42,7 @@
 			{% endfor %}
 			</p>
 			{% endif %}
-			
+		{% if related_posts %}	
 		<ul id="relatedposts">Some similar posts are 
 			{% for p in related_posts %}
 				{% if forloop.last %}and <a href="{{ p.get_absolute_url }}" alt="{{p}}" title="{{p}}">"{{p}}"</a>
@@ -55,11 +55,12 @@
 				{% endif %}
 			{% endfor %}
 		</ul>
+        {% endif %}
 			
 		</div>
 		
 		<div id="detailborderbumper" class="thick"></div>
-		
+		{% comment %}
 		<div id ="comments">
 			{% get_comment_list for object as comment_list %}
 			{% if comment_list %}
@@ -83,6 +84,7 @@
 			{% render_comment_form for object %}
 			
 		</div>
+        {% endcomment %}
     </div>
     </div>
 {% endblock %}

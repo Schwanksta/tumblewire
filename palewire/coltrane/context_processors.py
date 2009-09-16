@@ -7,7 +7,7 @@ def meta(request):
     return {'meta_info': meta_info}
 
 def feed_autodiscover(request):
-    # Weirdest thing ever. 'feeds' has to be used once (even just by putting it on a blank line)
+    # Weirdest thing ever. 'feeds' has to be used once
     # before it'll populate. I don't know if I get it...
-    feeds
+    print "!!!!!",len(feeds)
     return {'feeds': feeds} 

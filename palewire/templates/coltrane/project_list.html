@@ -1,0 +1,22 @@
+{% extends "coltrane/base.html" %}
+{% load coltrane_tags %}
+
+{% block title %}{{ block.super }}.projects{% endblock %}
+
+{% block content %}
+	<div class="interiorlist">
+		<h2>Projects</h2>
+		<ul>
+		{% for object in object_list %}
+			<li>
+				<a href="{% url coltrane_project_detail object.slug %}">
+				{{ object }}
+				</a> 
+			</li>
+		{% endfor %}
+		</ul>
+	</div>
+	
+	{% include 'coltrane/pagination.html' %}
+	
+{% endblock %}

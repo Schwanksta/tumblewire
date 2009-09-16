@@ -102,13 +102,27 @@ admin.site.register(Photo, PhotoAdmin)
 class TrackAdmin(admin.ModelAdmin):
 	fieldsets = (
 		('Track', {
-			'fields': ('artist_name', 'track_name', 'url', 'pub_date', 'track_mbid', 'artist_mbid', 'tags'),
+			'fields': ('artist_name', 'track_name', 'album_name', 'url', 'pub_date'),
 			'description': 'About the track.'
 		}),
 	)
-	list_display = ('artist_name', 'track_name', 'pub_date', 'tag_list')
-	search_fields = ('artist_name', 'track_name')
+	list_display = ('artist_name', 'track_name', 'album_name', 'pub_date', 'tag_list')
+	search_fields = ('artist_name', 'track_name', 'album_name')
 	date_hierarchy = 'pub_date'
 	
 admin.site.register(Track, TrackAdmin)
+
+
+class ProjectStatusAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(ProjectStatus, ProjectStatusAdmin)
+
+
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ('title', 'short_descrip', 'status')
+    list_filter = ('status',)
+    search_fields = ('title', 'short_descrip', 'long_descrip')
+
+admin.site.register(Project, ProjectAdmin)
 

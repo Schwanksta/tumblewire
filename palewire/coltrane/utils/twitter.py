@@ -60,10 +60,8 @@ def update():
 #
 
 TWITTER_TRANSFORM_MSG = True
-TWITTER_RETWEET_TXT = "Forwarding from %s: "
 try:
     TWITTER_TRANSFORM_MSG = settings.TWITTER_TRANSFORM_MSG
-    TWITTER_RETWEET_TXT = settings.TWITTER_RETWEET_TXT
 except AttributeError:
     pass
 

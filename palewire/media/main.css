@@ -55,7 +55,10 @@ table {
 body { 
 	text-align: center; 
 	font-family: helvetica, arial, sans-serif;
-	background-image: url('http://schwanksta.com/media/img/la-at-night.jpg');
+	background: black;
+	background-image: url('http://schwanksta.com/media/img/la-at-night-2.jpg');
+	background-repeat: no-repeat;
+
 }
 h1 { font-size: 6em;}
 ul {
@@ -67,7 +70,7 @@ li {
 }
 a, a:visited { color: #00dddd; text-decoration: none; }
 a:hover { 
-	color: #ddd; 
+	color: #333; 
 	background-image: url(http://schwanksta.com/media/img/link-hover.png);
 }
 li a { padding: 5px; display:block; }
@@ -87,12 +90,12 @@ li a { padding: 5px; display:block; }
     float: left;
     height: 310px;
     border: 1px solid #333;
-	background-image: url(http://schwanksta.com/media/img/box-bg.png);
+	background-image: url(http://schwanksta.com/media/img/box-bg-2.png);
 }
 a .box_title {
 	color: #ddd;
 }
-a:hover .box_title{ color: #f7eb26;}
+a:hover .box_title{ color: #FFFF00;}
 .box_title {
     font-size: .9em;
     background: #333;
@@ -103,7 +106,7 @@ a:hover .box_title{ color: #f7eb26;}
 .box_content { 
 	font-size: .9em; 
 	margin: 3px; 
-	height: 285px; 
+	height: 280px; 
 	overflow: auto;
 }
 
@@ -149,11 +152,13 @@ a:hover .box_title{ color: #f7eb26;}
 .interiorlist {
 	min-height: 630px;
 	padding: 5px;
-	background-image: url(http://schwanksta.com/media/img/box-bg.png);
+	margin-bottom: 5px;
+	background-image: url(http://schwanksta.com/media/img/box-bg-2.png);
 }
 
 .ticker-post-title {
 	font-size: 14px;
+    margin-left: -5px;
 	font-weight: bold;
 }
 
@@ -161,21 +166,33 @@ a:hover .box_title{ color: #f7eb26;}
 	font-size: 13px;
 }
 
-.detailbody {
-
+#detailbody {
+	margin-top: 10px;
 }
 
 .postbody {
     margin: 0px auto;
     padding-right: 100px;
     padding-left: 100px;
-    padding-top: 5px;
+    padding-top: 10px;
+	background-image: url(http://schwanksta.com/media/img/detail-bg.png);
+}
+
+.postbg {
+	min-height: 0px;
 }
 
 #detailmetadata {
+	margin-top: 10px;
     text-align: right;
+	padding-bottom: 10px;
 }
 
 h2 {
     font-size: 30px;
+}
+
+.postbody a {
+	color: #333; 
+	background-image: url(http://schwanksta.com/media/img/link-hover.png);
 }

@@ -57,21 +57,6 @@ class RecentPosts(Feed):
 		return item.pub_date
 
 
-class RecentBooks(Feed):
-	title = "%s.books" % site_name
-	link = "http://%s/feeds/books/" % site_domain
-	description = "the latest books at %s" % site_name
-
-	def items(self):
-		return Book.objects.all().order_by('-pub_date')[:10]
-
-	def item_link(self, item):
-		return item.url
-
-	def item_pubdate(self, item):
-		return item.pub_date
-
-
 class RecentCommits(Feed):
 	title = "%s.commits" % site_name
 	link = "http://%s/feeds/commits/" % site_domain

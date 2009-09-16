@@ -2,7 +2,7 @@
 import time
 import datetime
 from django.shortcuts import render_to_response, get_object_or_404
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 
 # To add context from our context_processors
@@ -18,13 +18,13 @@ from django.views.generic.list_detail import object_list
 
 def index(request):
     """
-    The homepage of the site, which simply redirects to the latest post.
+    The homepage.
     """
     group_list = [
         {'obj':Post, 'n':7},
         {'obj':Shout, 'n':4},
         {'obj':Commit, 'n':4},
-        {'obj':Photo, 'n':10},
+        {'obj':Project, 'n':5},
         {'obj':Track, 'n':5},
         {'obj':Link, 'n':5}
     ]
@@ -36,9 +36,7 @@ def index(request):
         } for group in group_list
     ]
 
-    print object_list
-
-    return render_to_response('coltrane/index.html', locals(), context_instance=RequestContext(request))
+    return render_to_response('coltrane/index.html', {'object_list':object_list}, context_instance=RequestContext(request))
 
 
 def post_detail(request, year, month, day, slug):
@@ -57,6 +55,9 @@ def post_detail(request, year, month, day, slug):
                                   'related_posts': related_posts },
                                 context_instance=RequestContext(request))
                                 
+
+def project_detail(request, slug):
+    return HttpResponse("OK")
 
 def category_detail(request, slug):
     """

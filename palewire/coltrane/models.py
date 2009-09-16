@@ -242,8 +242,7 @@ class Track(ThirdPartyBaseModel):
     """
     artist_name = models.CharField(max_length=250)
     track_name = models.CharField(max_length=250)
-    track_mbid = models.CharField(verbose_name = _("MusicBrainz Track ID"), max_length=36, blank=True)
-    artist_mbid = models.CharField(verbose_name = _("MusicBrainz Artist ID"), max_length=36, blank=True)
+    album_name = models.CharField(max_length=250)
 
     def __unicode__(self):
         return u"%s - %s" % (self.artist_name, self.track_name)
@@ -256,6 +255,32 @@ class Link(ThirdPartyBaseModel):
     title = models.CharField(max_length=250)
     description = models.TextField(blank=True, null=True)
 
+    def __unicode__(self):
+        return self.title
+
+
+class ProjectStatus(models.Model):
+    text = models.CharField(max_length=255, help_text="Status text.")
+    val = models.PositiveIntegerField(help_text="Numeric representation of status. 1-10 or whatever.")
+
+    def __unicode__(self):
+        return u'%d: %s' % (self.val, self.text)
+
+
+class Project(models.Model):
+    title = models.CharField(max_length=255, help_text="Project title.")
+    slug = models.SlugField()
+    short_descrip = models.CharField(max_length=255, help_text="Short description of project. Sort of a subtitle")
+    long_descrip = models.TextField(help_text="More detailed description. Can use Markdown.")
+    status = models.ForeignKey(ProjectStatus)
+    commit_feed =  models.URLField(null=True, blank=True, help_text="Commit RSS feed if hosted on GitHub (or elsewhere I suppose).")
+    url = models.URLField(null=True, blank=True)
+    source_code = models.URLField(null=True, blank=True)
+   
+    def get_rendered_html(self):
+        template_name = 'coltrane/ticker_item_%s.html' % (self.__class__.__name__.lower())
+        return render_to_string(template_name, { 'object': self })
+ 
     def __unicode__(self):
         return self.title
 
