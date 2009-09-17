@@ -4,7 +4,7 @@ from coltrane.models import Post
 
 entry_index_dict = {
 	'queryset': Post.live.all().order_by("-pub_date"),
-	#'paginate_by': 25,
+	'paginate_by': 25,
 }
 
 entry_info_dict = {

@@ -9,7 +9,7 @@
 		<ul>
 		{% for object in object_list %}
 			<li>
-				<a href="{% url coltrane_project_detail object.slug %}">
+				<a href="{% url coltrane_project_detail slug=object.slug %}">
 				{{ object }}
 				</a> 
 			</li>

@@ -18,9 +18,9 @@ urlpatterns = patterns('django.views.generic',
 
 )
 
-urlpatterns += patterns('',
-	url(r'^detail/(?P<slug>[-\w+])/$', 
-		'coltrane.views.project_detail', name='coltrane_project_detail'),
+urlpatterns += patterns('coltrane.views',
+	url(r'^detail/(?P<slug>[-\w]+)/$', 
+		'project_detail', name='coltrane_project_detail'),
 )
 
 

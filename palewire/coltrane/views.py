@@ -57,7 +57,9 @@ def post_detail(request, year, month, day, slug):
                                 
 
 def project_detail(request, slug):
-    return HttpResponse("OK")
+    proj = Project.objects.get(slug=slug)
+    return render_to_response("coltrane/project_detail.html", {'object':proj})
+
 
 def category_detail(request, slug):
     """
