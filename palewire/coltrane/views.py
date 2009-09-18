@@ -22,10 +22,10 @@ def index(request):
     """
     group_list = [
         {'obj':Post, 'n':7},
-        {'obj':Shout, 'n':4},
+        {'obj':Shout, 'n':5},
         {'obj':Commit, 'n':4},
-        {'obj':Project, 'n':5},
-        {'obj':Track, 'n':5},
+        {'obj':Project, 'n':4},
+        {'obj':Track, 'n':6},
         {'obj':Link, 'n':5}
     ]
 

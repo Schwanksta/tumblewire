@@ -1,5 +1,5 @@
 
 	<a class="post" href="{{ object.get_absolute_url }}">
 		<div class="ticker-post-title">{{ object}}</div>
-        <div class="ticker-post-body">{{ object.body_html|safe|truncatewords:25 }}</div>
+        <div class="ticker-post-body">{{ object.body_html|striptags|truncatewords:25 }}</div>
 	</a>
