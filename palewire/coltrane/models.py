@@ -266,6 +266,9 @@ class ProjectStatus(models.Model):
     def __unicode__(self):
         return u'%d: %s' % (self.val, self.text)
 
+    class Meta:
+        ordering = ('-val',)
+
 
 class Project(models.Model):
     title = models.CharField(max_length=255, help_text="Project title.")
@@ -283,6 +286,9 @@ class Project(models.Model):
  
     def __unicode__(self):
         return self.title
+
+    class Meta:
+        ordering = ('-status__val',)
 
 
 # Signals
