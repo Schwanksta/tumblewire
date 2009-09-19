@@ -5,6 +5,7 @@ from django.template.loader import render_to_string
 from django.utils.translation import ugettext_lazy as _
 from django.utils.text import truncate_html_words, truncate_words, get_text_list
 from django.utils.html import strip_tags
+from django.core.urlresolvers import reverse
 
 # Settings
 from django.conf import settings
@@ -283,6 +284,9 @@ class Project(models.Model):
     def get_rendered_html(self):
         template_name = 'coltrane/ticker_item_%s.html' % (self.__class__.__name__.lower())
         return render_to_string(template_name, { 'object': self })
+
+    def get_absolute_url(self):
+        return reverse('coltrane_project_detail', args=[self.slug]) 
  
     def __unicode__(self):
         return self.title
