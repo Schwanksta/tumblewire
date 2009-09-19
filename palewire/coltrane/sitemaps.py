@@ -10,6 +10,7 @@ post_dict = {
 	'date_field': 'pub_date',
 }
 
+project_dict = { 'queryset': Project.objects.all(), }
 tag_dict = {'queryset': Tag.objects.all(),}
 category_dict = {'queryset': Category.live.all(),}
 
@@ -25,6 +26,7 @@ class TagSitemap(Sitemap):
 sitemaps = {
 	'about': FlatPageSitemap,
 	'posts': GenericSitemap(post_dict, priority=0.9),
+    'projects': GenericSitemap(project_dict, priority=0.7),
 	'categories': GenericSitemap(category_dict, priority=0.6),
 	'tags': TagSitemap
 }
