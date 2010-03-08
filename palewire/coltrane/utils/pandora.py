@@ -47,7 +47,8 @@ def update():
         track_name = smart_unicode(track.find('{http://musicbrainz.org/mm/mm-2.1#}Track').find('{http://purl.org/dc/elements/1.1/}title').text)
         album_name = smart_unicode(track.find('{http://musicbrainz.org/mm/mm-2.1#}Album').find('{http://purl.org/dc/elements/1.1/}title').text)
         url = smart_unicode(track.find('link').text)
-        timestamp = datetime.datetime.strptime(track.find('pubDate').text, "%a, %d %b %Y %H:%M:%S -0700")
+        pdate = track.find('pubDate').text.split('-')[0].strip()
+        timestamp = datetime.datetime.strptime(pdate, "%a, %d %b %Y %H:%M:%S")
         if timestamp > last_update_date:
             log.debug("Handling track: %r - %r", artist_name, track_name)
             _handle_track(artist_name, track_name, album_name, url, timestamp)
