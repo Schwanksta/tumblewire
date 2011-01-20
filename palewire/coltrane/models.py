@@ -278,7 +278,7 @@ class Project(models.Model):
     long_descrip = models.TextField(help_text="More detailed description. Can use Markdown.")
     status = models.ForeignKey(ProjectStatus)
     commit_feed =  models.URLField(null=True, blank=True, help_text="Commit RSS feed if hosted on GitHub (or elsewhere I suppose).")
-    url = models.URLField(null=True, blank=True)
+    url = models.URLField(null=True, blank=True, verify_exists=False)
     source_code = models.URLField(null=True, blank=True)
    
     def get_rendered_html(self):
