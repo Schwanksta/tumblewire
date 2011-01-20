@@ -292,7 +292,7 @@ class Project(models.Model):
         return self.title
 
     class Meta:
-        ordering = ('-status__val',)
+        ordering = ('-id',)
 
 
 # Signals
